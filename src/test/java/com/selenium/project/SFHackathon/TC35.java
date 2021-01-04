@@ -23,13 +23,6 @@ public class TC35 extends UtilityClassDemo {
 		tc35Obj.wdObj.findElement(By.xpath("//img[@class='allTabsArrow']")).click();
 		Thread.sleep(5000);
 		
-//		Boolean b =tc35Obj.wdObj.findElement(By.xpath("//a[@class='dialogClose']")).isDisplayed();
-//		if(b==true) {
-//			tc35Obj.wdObj.switchTo().activeElement();
-//			tc35Obj.wdObj.findElement(By.xpath("//a[@class='dialogClose']")).click();
-//		}
-	
-		
 		tc35Obj.wdObj.findElement(By.xpath("//input[@class='btnImportant']")).click();
 		Select s2= new Select(tc35Obj.wdObj.findElement(By.xpath("//select[@id='duel_select_0']")));
 		Thread.sleep(2000);

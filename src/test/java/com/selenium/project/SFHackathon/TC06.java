@@ -58,9 +58,9 @@ public class TC06 extends UtilityClassDemo {
 		WebElement uploadButton = tc06Obj.wdObj.findElement(By.xpath("//div[@class='uploadButtonPanel']"));
 		uploadButton.findElement(By.xpath("//input[@id='j_id0:uploadFileForm:uploadBtn']")).click();
 		
-		
-		tc06Obj.waitExplicitely(5, tc06Obj.wdObj.findElement(By.xpath("//input[@ id='j_id0:j_id7:save']")));
-		tc06Obj.wdObj.findElement(By.xpath("//input[@ id='j_id0:j_id7:save']")).click();
+		Thread.sleep(3000);
+		tc06Obj.waitExplicitely(5, tc06Obj.wdObj.findElement(By.xpath("//form[@id='j_id0:j_id7']//input[@ id='j_id0:j_id7:save']")));
+		tc06Obj.wdObj.findElement(By.xpath("//form[@id='j_id0:j_id7']//input[@ id='j_id0:j_id7:save']")).click();
 		
 		Thread.sleep(3000);
 		tc06Obj.wdObj.switchTo().defaultContent();

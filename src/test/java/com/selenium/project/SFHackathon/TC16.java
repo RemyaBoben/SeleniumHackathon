@@ -51,7 +51,7 @@ public class TC16 extends UtilityClassDemo {
 		tc16Obj.wdObj.switchTo().frame(tc16Obj.wdObj.findElement(By.id("resultsFrame")));
 		Boolean b1 = tc16Obj.wdObj.findElement(By.xpath("(//table[@class='list']//tr[3]//th)")).isDisplayed();
 		//System.out.println(b1);
-		if(b==true) {
+		if(b1==true) {
 			tc16Obj.wdObj.findElement(By.xpath("(//table[@class='list']//tr[3]//th)")).click();
 		}
 		Thread.sleep(500);
@@ -70,21 +70,13 @@ public class TC16 extends UtilityClassDemo {
 	
 		
 		tc16Obj.wdObj.findElement(By.xpath("//input[@id='opp9']")).click();
-		tc16Obj.wdObj.findElement(By.xpath("//a[text()='1/3/2021']")).click();
+		tc16Obj.wdObj.findElement(By.xpath("//a[text()='1/4/2021']")).click();
 		
 		
 		tc16Obj.wdObj.findElement(By.xpath("//input[@id='opp12']")).clear();
 		tc16Obj.wdObj.findElement(By.xpath("//input[@id='opp12']")).sendKeys("10");
 		
-		//Boolean w3=new WebDriverWait(tc16Obj.wdObj,20).until(ExpectedConditions.numberOfWindowsToBe(2));
-		//System.out.println(w3);
-		////ArrayList<String> alObj3 = new ArrayList<String>(tc16Obj.wdObj.getWindowHandles());
-		//System.out.println(alObj3.size());
-		Boolean b2=tc16Obj.wdObj.findElement(By.xpath("//input[@name='oppo17']")).isDisplayed();
-		System.out.println(b2);
-	//	tc16Obj.wdObj.findElement(By.xpath("//input[@name='oppo17']")).sendKeys("New Campaign1");
 		tc16Obj.wdObj.findElement(By.xpath("//a[@id='opp17_lkwgt']")).click();
-	//	tc16Obj.wdObj.findElement(By.xpath("//a[@id='opp17_lkwgt']")).click();
 		
 		
 		Boolean w2=new WebDriverWait(tc16Obj.wdObj,50).until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -98,7 +90,7 @@ public class TC16 extends UtilityClassDemo {
 		System.out.println(b3);
 		tc16Obj.wdObj.switchTo().frame(tc16Obj.wdObj.findElement(By.id("searchFrame")));
 		tc16Obj.wdObj.findElement(By.xpath("//input[@id='lksrch']")).clear();
-		
+		tc16Obj.wdObj.findElement(By.xpath("//input[@id='lksrch']")).sendKeys("New Campaign1");
 		Thread.sleep(5000);
 		By by =By.xpath("//input[@value=' Go! ']");
 		tc16Obj.retryingFindClick(tc16Obj,by);
@@ -106,16 +98,16 @@ public class TC16 extends UtilityClassDemo {
 		Thread.sleep(1000);
 		tc16Obj.wdObj.switchTo().defaultContent();
 		tc16Obj.wdObj.switchTo().frame(tc16Obj.wdObj.findElement(By.id("resultsFrame")));
-		Boolean b4 = tc16Obj.wdObj.findElement(By.xpath("(//table[@class='list']//tr[3]//th)")).isDisplayed();
-		System.out.println(b4);
-		if(b==true) {
-			tc16Obj.wdObj.findElement(By.xpath("(//table[@class='list']//tr[3]//th)")).click();
+		Boolean b4 = tc16Obj.wdObj.findElement(By.xpath("//a[@class=' dataCell ']")).isDisplayed();
+		if(b4 == true) {
+			tc16Obj.wdObj.findElement(By.xpath("//a[@class=' dataCell ']")).click();
 		}
-		tc16Obj.wdObj.switchTo().defaultContent();
-		
-		WebElement ele2 = tc16Obj.wdObj.findElement(By.xpath("//div[@id='topButtonRow']"));
-		ele2.findElement(By.xpath("//input[@title='Save']")).click();
-		
+		Thread.sleep(2000);
+		tc16Obj.wdObj.switchTo().window(alObj2.get(0));
+		tc16Obj.waitExplicitely(5, tc16Obj.wdObj.findElement(By.xpath("//td[@id='bottomButtonRow']//input[@title='Save']")));
+		tc16Obj.wdObj.findElement(By.xpath("//td[@id='bottomButtonRow']//input[@title='Save']")).click();
+		Thread.sleep(2000);
+		tc16Obj.quit();
 		
 	}
 	public boolean retryingFindClick(TC16 tc16Obj,By by) {
